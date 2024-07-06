@@ -9,8 +9,8 @@ WORKDIR="/home/${USERNAME}/sing-box"
 
 
 generate_config() {
-  rm -rf ${WORKDIR}/config.json
-  cat > ${WORKDIR}/config.json << EOF
+  rm -rf ~/sing-box/config.json
+  cat > ~/sing-box/config.json << EOF
 {
   "log": {
     "disabled": false,
@@ -124,12 +124,12 @@ EOF
         echo "证书获取失败，请检查是否在面板中成功获取到Let's Encrypt证书"
         exit 1
     fi
-    echo "$CERTIFICATE" > ${WORKDIR}/cert.crt
-    echo "$PRIVATE_KEY" > ${WORKDIR}/private.key
+    echo "$CERTIFICATE" > ~/sing-box/cert.crt
+    echo "$PRIVATE_KEY" > ~/sing-box/private.key
 
     export_list() {
-        rm -rf ${WORKDIR}/list
-        cat > ${WORKDIR}/list << EOF
+        rm -rf ~/sing-box/list
+        cat > ~/sing-box/list << EOF
 *******************************************
         
 hy2配置：

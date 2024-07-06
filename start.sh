@@ -8,8 +8,11 @@ export UUID=''
 
 USERNAME=$(whoami)
 WORKDIR="/home/${USERNAME}/sing-box"
-[ ! -e ${WORKDIR}/entrypoint.sh ] && wget https://raw.githubusercontent.com/k0baya/sb-for-serv00/main/entrypoint.sh -O ${WORKDIR}/entrypoint.sh && chmod +x ${WORKDIR}/entrypoint.sh
-[ ! -e ${WORKDIR}/app.js ] && wget https://raw.githubusercontent.com/k0baya/sb-for-serv00/main/app.js -O ${WORKDIR}/app.js
+mkdir -p ${WORKDIR}
+cd ${WORKDIR} && \
+[ ! -e ${WORKDIR}/entrypoint.sh ] && wget https://raw.githubusercontent.com/k0baya/sb-for-serv00/main/entrypoint.sh -O ${WORKDIR}/entrypoint.sh && chmod +x ${WORKDIR}/entrypoint.sh && \
+[ ! -e ${WORKDIR}/app.js ] && wget https://raw.githubusercontent.com/k0baya/sb-for-serv00/main/app.js -O ${WORKDIR}/app.js && \
+[ ! -e ${WORKDIR}/sing-box ] && wget https://raw.githubusercontent.com/k0baya/sb-for-serv00/main/sing-box -O ${WORKDIR}/sing-box && \
 nohup node ${WORKDIR}/app.js >/dev/null 2>&1 &
 echo 'SB-for-Serv00 is trying to start up, please waiting...'
 sleep 7 && cat ${WORKDIR}/list

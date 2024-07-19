@@ -5,7 +5,7 @@
 
 * 无需自备域名，使用 Serv00 自带的域名实现 TLS ；
 
-* 同时支持 Hysteria2 和 Tuic5 双协议；
+* 同时支持 Hysteria2、Tuic5 和 Trojan 三协议；
 
 * JS 定时保活核心
 
@@ -17,7 +17,7 @@
 
 #### 准备工作
 
-首先在 Panel 中放行两个类型为 UDP 端口，并在 Additional services 选项卡中找到 Run your own applications 项目，将其设置为 Enabled 。
+首先在 Panel 中放行两个类型为 UDP 端口，和一个类型为 TCP 的端口，并在 Additional services 选项卡中找到 Run your own applications 项目，将其设置为 Enabled 。
 
 然后是最重要的部分，生成一个 Let's Encrypted 证书：
 
@@ -28,8 +28,9 @@
 右键点击 `start.sh` 文件，选择 View/Edit > Source Editor ，进行编辑，在 1 - 7 行修改环境变量：
 |变量名|是否必须|默认值|备注|
 |-|-|-|-|
-|HY2PORT|是||Hysteria2 协议监听端口|
-|TUIC5PORT|是||Tuic5 协议监听端口|
+|HY2PORT|是||Hysteria2 协议监听端口（使用 UDP）|
+|TUIC5PORT|是||Tuic5 协议监听端口（使用 UDP）|
+|TRPORT|是||Trojan 协议监听端口（使用 TCP）|
 |SERV00PASSWORD|是||你的 Serv00 账号的密码，用于获取 SSL 证书|
 |UUID|否|de04add9-5c68-8bab-950c-08cd5320df18||
 
@@ -40,7 +41,7 @@ SSH 登录 Serv00 ，进入 `start.sh` 所在的路径，直接执行即可启�
 ```
 chmod +x start.sh && bash start.sh
 ```
-等待程序完成启动，会在 Terminal 中直接打印出 Hysteria2 和 Tuic5 的配置链接。
+等待程序完成启动，会在 Terminal 中直接打印出 Hysteria2、Tuic5 和 Trojan 的配置链接。
 
 ### 自动启动
 

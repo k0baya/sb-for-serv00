@@ -1,6 +1,7 @@
 #!/bin/bash
 HY2PORT=${HY2PORT:-'20000'}
 TUIC5PORT=${TUIC5PORT:-'20001'}
+TRPORT=${TRPORT:-'20002'}
 SERV00PASSWORD=${SERV00PASSWORD:-'password'}
 
 USERNAME=$(whoami)
@@ -59,6 +60,24 @@ generate_config() {
         "certificate_path": "${WORKDIR}/cert.crt",
         "key_path": "${WORKDIR}/private.key"
       }
+    },
+    {
+	    "type": "trojan",
+	    "tag": "tr-sb",
+	    "listen": "::",
+	    "listen_port": ${TRPORT},
+	    "users": [{
+	    	"name": "user",
+	    	"password": "${UUID}"
+	    }],
+	    "tls": {
+	    	"enabled": true,
+	    	"alpn": [
+	    		"h3"
+	    	],
+	    	"certificate_path": "${WORKDIR}/cert.crt",
+	    	"key_path": "${WORKDIR}/private.key"
+	    }
     }
   ],
   "outbounds": [
@@ -141,6 +160,12 @@ hysteria2://${UUID}@${HOST}:${HY2PORT}/?sni=${DOMAIN}#🇵🇱PL-hy2-k0baya-serv
 tuic5配置：
         
 tuic://${UUID}:${UUID}@${HOST}:${TUIC5PORT}//?congestion_control=bbr&udp_relay_mode=native&sni=${DOMAIN}&alpn=h3#🇵🇱PL-tuic5-k0baya-serv00
+        
+----------------------------
+        
+trojan配置：
+        
+trojan://${UUID}@${HOST}:${TRPORT}/?type=tcp&security=tls&sni=${DOMAIN}&alpn=h3#🇵🇱PL-trojan-k0baya-serv00
         
 *******************************************
 EOF

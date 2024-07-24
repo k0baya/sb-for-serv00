@@ -125,8 +125,8 @@ EOF
 }
 
 get_certificate() {
-    local IP_ADDRESS=$(devil ssl www list | awk '/SNI SSL certificates for WWW/{flag=1; next} flag && NF && $6 != "address" {print $6}' | head -n 1)
-    local DOMAIN=$(devil ssl www list | awk '/SNI SSL certificates for WWW/{flag=1; next} flag && NF && $6 != "address" {print $8}' | head -n 1)
+    local IP_ADDRESS=$(devil ssl www list | awk '/SNI SSL/{flag=1; next} flag && NF && $6 != "address" {print $6}' | head -n 1)
+    local DOMAIN=$(devil ssl www list | awk '/SNI SSL/{flag=1; next} flag && NF && $6 != "address" {print $8}' | head -n 1)
     local HOST=$(devil vhost list | awk 'NR>2 {print $2}' | grep '^s')
     local CERT_OUTPUT=$(env SERV00PASSWORD="$SERV00PASSWORD" expect << EOF
 spawn devil ssl www get "${IP_ADDRESS}" "${DOMAIN}"

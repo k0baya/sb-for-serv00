@@ -16,13 +16,13 @@
 ### 部署
 #### 准备工作
 
-首先你需要至少拥有 1 个托管在 Cloudflare 的域名。
-
-然后参考[群晖套件：Cloudflare Tunnel 内网穿透中文教程 支持DSM6、7](https://imnks.com/5984.html) 的教程，在 Cloudflare 控制面板中创建 1 个 Argo Tunnel，把其中 ey 开头的一串 Token 记录下来备用。
-
-同时你还需要 1 个 Serv00 的账号。
+首先你需要 1 个 Serv00 的账号。
 
 >如果你之前放行过端口，请确保你的端口不是 TCP 类型，如果放行过 TCP 端口，请将其删除。
+
+然后是最重要的部分，生成一个 Let's Encrypt 证书：
+
+在 Panel 中点击左侧菜单栏中的 SSL ，然后点击上方菜单栏中的 WWW websites ，点击第一个 IP Address 最右侧的 Manage 按钮，再点击上方菜单栏中的 Add certificate 按钮，Type 选择 Generate Let's Encrypt certificate， Domain任选一个即可，最后点击下方的 Add 按钮进行生成。**请至少保证自己的 Serv00 账号下有一个 Let's Encrypt 的证书，否则无法使用本仓库！**
 
 #### 部署 sb-for-Serv00
 

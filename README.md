@@ -24,6 +24,8 @@
 
 在 Panel 中点击左侧菜单栏中的 SSL ，然后点击上方菜单栏中的 WWW websites ，点击第一个 IP Address 最右侧的 Manage 按钮，再点击上方菜单栏中的 Add certificate 按钮，Type 选择 Generate Let's Encrypt certificate， Domain任选一个即可，最后点击下方的 Add 按钮进行生成。**请至少保证自己的 Serv00 账号下有一个 Let's Encrypt 的证书，否则无法使用本仓库！**
 
+>友情提示，自己的域名添加 A 类型 DNS 记录指向 Serv00 的服务器后，也可以使用 Serv00 的面板内置的功能添加 Let's Encrypt 的证书，且对本仓库的运行同样有效。同时，自己的域名不受 Serv00 自带域名申请 SSL 证书时的每周数量限制。
+
 #### 部署 sb-for-Serv00
 
 SSH 登录 Serv00，输入以下命令以激活运行许可：

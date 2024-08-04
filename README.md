@@ -32,7 +32,7 @@ devil binexec on
 ```
 接着断开 SSH 并重新连接，输入以下命令：
 ```shell
-bash <(curl -Ls https://raw.githubusercontent.com/k0baya/sb-for-serv00/main/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/k0baya/sb-for-serv00/main/entrypoint.sh)
 ```
 并按照提示输入相关信息。
 

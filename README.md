@@ -1,5 +1,8 @@
 ## sb-for-Serv00
 
+>新增 All-in-one 分支：[Sb-for-serv00 All-in-one branch](https://github.com/k0baya/sb-for-serv00/tree/all-in-one)
+>该分支删去 Naïve 协议，添加基于 TCP 连接的 Vless-ws-tls，并加入了 Cloudflare CDN 的接入方式，共计 6 种接入方式。
+
 ### 项目特点
 * 本项目用于在 [Serv00](https://www.serv00.com/) 部署 Sing-box，采用的方案为 Sing-box + TLS ；
 

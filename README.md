@@ -5,7 +5,7 @@
 
 * 无需自备域名，使用 Serv00 自带的域名实现 TLS ；
 
-* 同时支持 Hysteria2 和 Tuic5 、Vless-ws-tls 协议，共 6 种接入方式；
+* 同时支持 Hysteria2 和 Tuic5 、Vless-ws-tls 协议，共 6 种接入方式，并且支持 Warp 出站，可以访问 IPv6 资源；
 
 * 支持 Cloudflare CDN 连入；
 
@@ -13,7 +13,7 @@
 
 ### TODO
 
-> 目前由于 sing-box 的一个 bug，导致设置 Wireguard 出站时会内存错误直接闪退，无法正常使用，故目前本仓库暂不支持 IPv6。待 Sing-box 修复后，再进行更新添加 IPv6 支持。 
+> ~~目前由于 sing-box 的一个 bug，导致设置 Wireguard 出站时会内存错误直接闪退，无法正常使用，故目前本仓库暂不支持 IPv6。待 Sing-box 修复后，再进行更新添加 IPv6 支持。 ~~
 
 ### 部署
 

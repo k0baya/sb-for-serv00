@@ -388,6 +388,7 @@ fi
 [ -e \${WORKDIR}/private.key ] && rm -f \${WORKDIR}/private.key
 echo "\$CERTIFICATE" > \${WORKDIR}/cert.crt
 echo "\$PRIVATE_KEY" > \${WORKDIR}/private.key
+killall -q sing-box cloudflared
 EOF
         chmod +x cert.sh
         bash cert.sh

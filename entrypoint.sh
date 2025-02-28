@@ -369,8 +369,11 @@ get_certificate() {
         cat > cert.sh << EOF
 #!/bin/bash
 WORKDIR="${WORKDIR}"
-CERT_OUTPUT=\$(env SERV00PASSWORD="${SERV00PASSWORD}" expect << 'ABC'
-spawn devil ssl www get "${IP_ADDRESS}" "${DOMAIN}"
+IP_ADDRESS="${IP_ADDRESS}"
+DOMAIN="${DOMAIN}"
+SERV00PASSWORD="${SERV00PASSWORD}"
+CERT_OUTPUT=\$(env SERV00PASSWORD="\${SERV00PASSWORD}" expect << ABC
+spawn devil ssl www get "\${IP_ADDRESS}" "\${DOMAIN}"
 expect "Password:"
 send "\\\$env(SERV00PASSWORD)\r"
 expect eof

@@ -320,20 +320,6 @@ generate_config() {
     {
       "type": "direct",
       "tag": "direct",
-      "domain_strategy": "ipv4_only"
-    },
-    {
-      "type": "wireguard",
-      "tag": "wireguard-out",
-      "server": "162.159.193.10",
-      "server_port": 1701,
-      "local_address": [
-        "172.16.0.2/32",
-        "2606:4700:110:8b82:7e66:1cc9:db92:fbf6/128"
-      ],
-      "private_key": "kAKpn/A4Rrhi1RvdKuFKurxWh2vYbZPHZQ/HlFFuwGE=",
-      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": [110, 229, 36]
     },
     {
       "type": "block",
@@ -344,7 +330,7 @@ generate_config() {
     "rules": [
       {
         "ip_version": 6,
-        "outbound": "block"
+        "outbound": "direct"
       }
     ]
   }

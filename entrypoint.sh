@@ -325,15 +325,7 @@ generate_config() {
       "type": "block",
       "tag": "block"
     }
-  ],
-  "route": {
-    "rules": [
-      {
-        "ip_version": 6,
-        "outbound": "direct"
-      }
-    ]
-  }
+  ]
 }
 EOF
 }

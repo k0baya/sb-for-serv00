@@ -342,7 +342,6 @@ generate_config() {
     {
       "type": "direct",
       "tag": "direct",
-      "domain_strategy": "ipv4_only"
     },
     {
       "type": "block",
@@ -353,7 +352,7 @@ generate_config() {
     "rules": [
       {
         "ip_version": 6,
-        "outbound": "block"
+        "outbound": "direct"
       }
     ]
   }
